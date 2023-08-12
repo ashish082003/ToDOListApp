@@ -1,8 +1,31 @@
 # ToDOListApp
-App that lists works in array
+Todilist is a simple web application for creating and managing your to-do lists. It's built using MongoDB, EJS (Embedded JavaScript), CSS, JavaScript, Node.js, and Express.js.
 
-# To run locally
-1. clone repository
-2. install all dependencies by command npm i
-3. see app on localhost://3000
-![Screenshot 2023-08-11 092604](https://github.com/ashish082003/ToDOListApp/assets/114795586/947741c4-dcb8-4185-a88e-07e958669684)
+## Features
+- Create new to-do items.
+- Mark items as complete.
+- Delete items from the list.
+- Clean and intuitive user interface.
+
+## Technologies Used
+
+- MongoDB: A NoSQL database for storing to-do items.
+- EJS: A template engine for rendering dynamic content.
+- CSS: Styling for the user interface.
+- JavaScript: For interactive features and client-side logic.
+- Node.js: A JavaScript runtime for server-side development.
+- Express.js: A web application framework for Node.js.
+
+## To run locally
+## Installation
+
+1. **Clone the repository:**
+   ```bash
+   git clone <repository_url>
+   cd toDOListApp
+2. **Install dependencies:**
+   ```bash
+   npm install
+3. **Run using**
+   ```bash
+   node app.js
