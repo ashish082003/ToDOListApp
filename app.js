@@ -11,7 +11,7 @@ app.set("view engine", "ejs");
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
 
-mongoose.connect("mongodb://127.0.0.1:27017/todolistDB", { useNewUrlParser: true });
+mongoose.connect("mongodb+srv://ashish08:Chakur%40123@cluster0.dptuc6v.mongodb.net/todolistDB", { useNewUrlParser: true });
 
 const itemsSchema = {
     name: String
@@ -37,7 +37,7 @@ const listSchema = {
     name: String,
     items: [itemsSchema]
 };
-const List = mongoose.model("List", listSchema);
+
 
 
 
@@ -55,6 +55,7 @@ app.get("/", (req, res) => {
                 listTitle: "Today",
                 newListItems: foundItems
             });
+            res.redirect("/");
         }
     }).catch(function (err) {
         console.log(err);
@@ -62,36 +63,13 @@ app.get("/", (req, res) => {
 
 });
 
-app.get("/:customListName", function (req, res) {
-    const customListName = (req.params.customListName);
 
-    List.findOne({ name: customListName }).then(function (err, foundList) {
-        if (!err) {
-            if (!foundList) {
-                //Create a new list
-                const list = new List({
-                    name: customListName,
-                    items: defaultItems
-                });
-                list.save();
-                res.redirect("/" + customListName);
-
-            } else {
-                res.render("list", { listTitle: foundList.name, newListItems: foundList.items });
-            }
-        }
-    });
-
-
-
-});
 app.post("/", (req, res) => {
     const itemName = req.body.newItem;
     const item = new Item({
         name: itemName
     });
     item.save();
-
     res.redirect("/");
 });
 
