@@ -13,6 +13,7 @@ app.use(express.static("public"));
 
 mongoose.connect("mongodb://127.0.0.1:27017/todolistDB", { useNewUrlParser: true });
 
+// item schema
 const itemsSchema = {
     name: String
 };
@@ -33,6 +34,7 @@ const item3 = new Item({
 
 const defaultItems = [item1, item2, item3];
 
+//list schema
 const listSchema = {
     name: String,
     items: [itemsSchema]
