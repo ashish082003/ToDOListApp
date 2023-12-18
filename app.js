@@ -2,16 +2,16 @@ const express = require("express");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 
-
+const dotenv = require("dotenv");
 const app = express();
-
+dotenv.config();
 
 
 app.set("view engine", "ejs");
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
 
-mongoose.connect("mongodb+srv://ashish08:Chakur%40123@cluster0.dptuc6v.mongodb.net/todolistDB", { useNewUrlParser: true });
+mongoose.connect(process.env.MONGO_URL, { useNewUrlParser: true });
 
 const itemsSchema = {
     name: String
